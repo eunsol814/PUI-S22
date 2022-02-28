@@ -1,0 +1,75 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    background-color: #CC002B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 70%;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.login-left {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-row {
+    float: left;
+    height: 80%;
+    width: 1px; /* edit this if you want */
+    background-color: grey;
+    margin: auto;
+}
+
+.login-right {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.login-info {
+    margin: 100px 0;
+}
+
+.login-info div {
+    margin: 20px 0;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+input {
+    width: 50%;
+    height: 30px;
+    background-color: lightgrey;
+    border: none;
+    box-shadow: inset 1px 2px 1px 1px grey;
+}
+
+button {
+    background-color: #CC002B;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    padding: 10px 25px;
+}

@@ -1,10 +1,16 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "week4_lab",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
