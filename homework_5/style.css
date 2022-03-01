@@ -82,6 +82,14 @@ h2 {
     text-align: left;
 }
 
+.upcoming {
+    transition-duration: 0.3s;
+}
+
+.upcoming:hover {
+    background-color: #e7e7e7;
+}
+
 .appointment-info.cancel {
     text-decoration: line-through;
 }

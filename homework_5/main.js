@@ -33,6 +33,7 @@ window.addEventListener('click', (e) => {
 
     if (e.target.id == "render") {
         document.getElementById('schedule').className = "";
+        document.getElementById("schedule").scrollIntoView({behavior: "smooth"});
     }
 
     if (e.target.classList.contains("slot")) {
@@ -43,6 +44,7 @@ window.addEventListener('click', (e) => {
             document.getElementById("appointment-method").innerHTML = document.querySelector('input[type=radio][name=method]:checked').value;
             document.getElementById("appointment-time").innerHTML = selectedDate + " " + slot.querySelector(".slot-time").innerHTML;
             document.getElementById("appointment-location").innerHTML = slot.querySelector(".slot-location").innerHTML;
+            document.getElementById("appointment-information").scrollIntoView({behavior: "smooth"});
         } else {
             slot.classList.remove("selected");
             slot = e.target;
