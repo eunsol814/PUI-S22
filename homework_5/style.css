@@ -248,6 +248,11 @@ button,input[type=submit] {
     border: 1px solid lightgrey;
     margin: 10px 5px;
     padding: 5px 10px;
+    transition-duration: 0.3s;
+}
+
+.slot:hover {
+    background-color: #e7e7e7;
 }
 
 .selected {

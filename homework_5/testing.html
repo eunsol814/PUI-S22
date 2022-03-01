@@ -24,7 +24,7 @@
     <h1>Schedule Testing</h1>
     <div class="testing">
         <h2>Choose a method:</h2>
-        <input type="radio" id="pcr" name="method" value="RT-PCR">
+        <input type="radio" id="pcr" name="method" value="RT-PCR" required>
         <label for="pcr">RT-PCR</label>
         <input type="radio" id="antigen" name="method" value="Antigen Test">
         <label for="antigen">Antigen Test</label>
@@ -33,23 +33,11 @@
 
         <h2>Enter your location (zipcode/street address):</h2>
         <input type="text" id="location" name="location">
-        <button id="render">Search</button>
+        <input type="submit" id="render" value="Search"></input>
         <div class="hidden" id="schedule">
             <h2>Select date/time:</h2>
             <div class="schedule">
                 <div class="calendar" id="my-calendar">
-                    <!-- <div class="auto-jsCalendar" data-month-format="month YYYY" data-navigator-position="right"></div> -->
-                    <!-- <div class="container">
-                        <div class="days">
-                            <span class="day">Mo</span>
-                            <span class="day">Tu</span>
-                            <span class="day">We</span>
-                            <span class="day">Th</span>
-                            <span class="day">Fr</span>
-                            <span class="day">Sa</span>
-                            <span class="day">Su</span>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="slots">
                     <h2 id="slots-header">Available Slots:</h2>
