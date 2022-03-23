@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 5_HTML and CSS Prototypes</title>
+    <meta charset="UTF-8">
+    <!-- jsCalendar style -->
+    <link rel="stylesheet" type="text/css" href="jsCalendar_v1.4.4/source/jsCalendar.css">
+    <!-- jsCalendar script -->
+    <script type="text/javascript" src="jsCalendar_v1.4.4/source/jsCalendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+
+<body onload="loadMain()">
+    <header>
+        <a href="main.html" id="cmu"><img src="cmu-wordmark-horizontal-w.png" alt="CMU-logo-horizontal"></a>
+        <a href="myinfo.html" id="info">My Information</a>
+        <a href="testing.html" id="test">Schedule Testing</a>
+        <a href="vaccination.html" id="vaxx">Schedule Vaccination</a>
+    </header>
+    <br/>
+    <div class="main">
+        <div class="plaid_container" id="upcomings">
+            <h2>Upcoming Appointments</h2>
+            <!-- <div class="appointment upcoming">
+                <span class="appointment-info">
+                    Pfizer - Booster shot<br>
+                    02/15/2022 12:00PM<br>
+                </span>
+                <span>CVS <span class="appointment-address">5600 Wilkins Ave, Pittsburgh, PA 15217</span></span>
+                <div class="hidden" id="cancel-appointment">
+                    <button>Cancel Appointment</button>
+                </div>
+            </div> -->
+        </div>
+        <div class="plaid_container" id="pasts">
+            <h2>Past Appointments</h2>
+            <!-- <div class="appointment">
+                <span class="appointment-info cancel">
+                    Pfizer - Booster shot<br>
+                    02/07/2022  12:00PM<br>
+                </span>
+                <span class="appointment-status cancel">Cancelled</span>
+            </div>
+            <div class="appointment">
+                <span class="appointment-info">
+                    RT-PCR<br>
+                    12/11/2021  2:00PM<br>
+                </span>
+                <span class="appointment-status">Negative</span>
+            </div> -->
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h1>Appointment Information</h1>
+            <div id="modal-content">
+
+            </div>
+            <button class="modal-btn" onclick="updateAppointment(this.id, 'main')">Update Appointment</button>
+            <button class="modal-btn" onclick="cancelAppointment(this.id, 'main')">Cancel Appointment</button>
+        </div>
+  </div>
+</body>
+</html>

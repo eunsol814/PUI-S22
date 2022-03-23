@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 5_HTML and CSS Prototypes</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="main.html" id="cmu"><img src="cmu-wordmark-horizontal-w.png" alt="CMU-logo-horizontal"></a>
+        <a href="myinfo.html" id="info">My Information</a>
+        <a href="testing.html" id="test">Schedule Testing</a>
+        <a href="vaccination.html" id="vaxx">Schedule Vaccination</a>
+    </header>
+    <h1>Schedule Vaccination</h1>
+    <div class="vaccination">
+        <form>
+            <h2>Choose a method:</h2>
+            <input type="radio" id="pfizer" name="method" value="pfizer">
+            <label for="pfizer">Pfizer</label>
+            <input type="radio" id="moderna" name="method" value="moderna">
+            <label for="moderna">Moderna</label>
+            <input type="radio" id="j&j" name="method" value="j&j">
+            <label for="j&j">Johnson and Johnson</label>
+
+            <h2>Enter your location (zipcode/street address):</h2>
+            <input type="text" id="location" name="location">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>
