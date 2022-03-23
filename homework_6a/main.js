@@ -258,6 +258,15 @@ window.addEventListener('click', (e) => {
     }
     if (e.target == modal) {
         modal.style.display = "none";
+        var modalContent = document.getElementsByClassName("modal-content")[0];
+        modalContent.innerHTML = `
+        <h1>Appointment Information</h1>
+                <div id="modal-content">
+
+                </div>
+                <button class="modal-btn" onclick="updateAppointment(this.id, '` + type + `')">Update Appointment</button>
+                <button class="modal-btn" onclick="cancelAppointment(this.id, '` + type + `')">Cancel Appointment</button>
+        `;
         for (var j=0; j<buttons.length; j++) {
             buttons[j].removeAttribute("id");
         }
