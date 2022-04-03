@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 6</title>
+    <meta charset="UTF-8">
+    <!-- jsCalendar style -->
+    <link rel="stylesheet" type="text/css" href="jsCalendar_v1.4.4/source/jsCalendar.css">
+    <!-- jsCalendar script -->
+    <script type="text/javascript" src="jsCalendar_v1.4.4/source/jsCalendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+
+<body onload="loadCalendar()">
+    <header>
+        <a href="main.html" id="cmu"><img src="img/cmu-wordmark-horizontal-w.png" alt="CMU-logo-horizontal"></a>
+        <a href="myinfo.html" id="info">My Information</a>
+        <a href="testing.html" id="test">Schedule Testing</a>
+        <a href="vaccination.html" id="vaxx">Schedule Vaccination</a>
+    </header>
+    <h1>Schedule Vaccination</h1>
+    <div class="vaccination">
+        <!-- <form> -->
+            <h2>Choose a method:</h2>
+            <input type="radio" id="pfizer" name="method" value="Pfizer">
+            <label for="pfizer">Pfizer</label>
+            <input type="radio" id="moderna" name="method" value="Moderna">
+            <label for="moderna">Moderna</label>
+            <input type="radio" id="j&j" name="method" value="Johnson & Johnson">
+            <label for="j&j">Johnson and Johnson</label>
+
+            <h2>Enter your location (zipcode/street address):</h2>
+            <input type="text" id="location" name="location">
+            <input type="submit" id="render" value="Search">
+            <div class="hidden" id="schedule">
+                <h2>Select date/time:</h2>
+                <div class="schedule">
+                    <div class="calendar" id="my-calendar">
+                    </div>
+                    <div class="slots">
+                        <h2 id="slots-header">Available Slots:</h2>
+                        <div class="slot">
+                            <div>
+                                <span class="slot-time">11:00</span>
+                                <span class="slot-location">CMU East Campus Garage</span>
+                            </div>
+                            <span class="slot-distance">0.7miles</span>
+                        </div>
+                        <div class="slot">
+                            <div>
+                                <span class="slot-time">12:00</span>
+                                <span class="slot-location">CMU East Campus Garage</span>
+                            </div>
+                            <span class="slot-distance">0.7miles</span>
+                        </div>
+                        <div class="slot">
+                            <div>
+                                <span class="slot-time">15:00</span>
+                                <span class="slot-location">CMU East Campus Garage</span>
+                            </div>
+                            <span class="slot-distance">0.7miles</span>
+                        </div>
+                        <div class="slot">
+                            <div>
+                                <span class="slot-time">16:00</span>
+                                <span class="slot-location">CMU East Campus Garage</span>
+                            </div>
+                            <span class="slot-distance">0.7miles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </form> -->
+    </div>
+    <div class="hidden" id="appointment-information">
+        <h2>Your Appointment Information:</h2>
+        <div class="appointment-information">
+            <img class="map" src="img/Screen Shot 2022-02-28 at 1.58.44 PM.png" alt="appointment map">
+            <div class="appointment-final">
+                <div id="appointment-method"></div>
+                <div id="appointment-time"></div>
+                <div id="appointment-location"></div>
+                <div id="appointment-address">5040 Forbes Ave, Pittsburgh PA 15213</div>
+                <button class="vaccination-confirm" id="confirm">Confirm Appointment</button>
+            </div>
+        </div>
+        <div class="hidden" id="finals">
+            <a href="main.html"><input type="submit" value="Back to Home"></a>
+            <button id="export">Export to Calendar</button>
+        </div>
+    </div>
+</body>
+</html>
