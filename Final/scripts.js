@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var helpI = 0;
 	// Create the board
 	var maze = new Board();
 	maze.createGrid();
@@ -57,7 +58,24 @@ $(document).ready(function() {
 	document.getElementById("clearpath").onclick = function() {
 		maze.clearPaths();
 	};
-	document.getElementById("help").onclick = function() {
-		openHelp();
+
+	document.getElementById("modal-btn-prev").onclick = function() {
+		if (helpI > 0) {
+			helpI -= 1;
+			document.getElementsByClassName("modal-body")[0].innerHTML = Pages[helpI];
+		}
 	};
+	document.getElementById("modal-btn-next").onclick = function() {
+		if (helpI < Pages.length - 1) {
+			helpI += 1;
+			document.getElementsByClassName("modal-body")[0].innerHTML = Pages[helpI];
+		}
+	}
+	var myModal = document.getElementById('helpModal');
+	myModal.addEventListener('show.bs.modal', function(e) {
+		document.getElementsByClassName("modal-body")[0].innerHTML = Pages[helpI];
+	});
+	myModal.addEventListener('hide.bs.modal', function (e) {
+		helpI = 0;
+	});
 });
