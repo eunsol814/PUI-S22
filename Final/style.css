@@ -1,79 +1,16 @@
-h1 {
-	float: left;
-	background: black;
-	color: white;
-	font: bold 30px Arial, sans-serif;
-	padding: 12px;
-	padding-left: 20px;
-	padding-right: 20px;
+.description {
+	width: 100%;
+	height: 10vh;
 	text-align: center;
-	margin: 0;
-}
-
-.menubar {
-	float: left;
-	overflow: hidden;
-	background: black;
-	font: 16px Arial, sans-serif;
-}
-
-.menubar a {
-	border: none;
-	outline: none;
-	float: left;
-	color: white;
-	text-align: center;
-	padding: 20px 20px;
-	text-decoration: none;
-}
-
-.dropdown {
-	float: left;
-	overflow: hidden;
-}
-
-.dropdown .dropbutton {
-	border: none;
-	color: white;
-	background: inherit;
-	padding: 20px 15px;
-	outline: none;
-	margin: 0;
-	font: inherit;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background: darkgrey;
-	z-index: 9999;
-}
-
-.dropdown-content a {
-	font: 15px Arial, sans-serif;
-	text-align: left;
-	float: none;
-	color: black;
-	display: block;
-	text-decoration: none;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
-}
-
-.dropdown-content a:hover {
-	background: lightgrey;
+	margin: auto;
 }
 
 #maze {
 	outline: 2px solid black;
 	margin: auto;
-	margin-top: 150px;
 	position: relative;
-	width: 100%;
-	min-height: 700px;
-	max-height: 800px;
+	width: 95vw;
+	height: 80vh;
 	border-collapse: collapse;
 }
 
@@ -97,7 +34,7 @@ tr, td {
 }
 
 .wall {
-	background: #333333;
+	background-color: #333333;
 }
 
 @keyframes explore {

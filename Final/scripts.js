@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	// Create the board
 	var maze = new Board();
-	console.log(window.screen.width, window.screen.height)
 	maze.createGrid();
 
 	document.getElementById("BFS").onclick = function() {
@@ -61,8 +60,4 @@ $(document).ready(function() {
 	document.getElementById("help").onclick = function() {
 		openHelp();
 	};
-});
-
-$(window).resize(function() {
-	// Adjust the size of the board
 });

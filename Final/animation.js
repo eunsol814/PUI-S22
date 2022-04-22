@@ -12,7 +12,7 @@ function callSearchAnimation(maze) {
 			let action = maze.shortestPath[j];
 			let nextState  = maze.getResult(state, action);
 			setTimeout(() => {
-				document.getElementById(JSON.stringify(nextState)).className = 'path';
+				document.getElementById(JSON.stringify(nextState)).className = 'path bg-warning';
 			}, j * 10);
 			state = nextState;
 		}
@@ -24,7 +24,7 @@ function callMazeAnimation(maze) {
 	maze.clearWalls();
 	for (let i=0; i<maze.maze.length; i++) {
 		setTimeout(() => {
-			document.getElementById(JSON.stringify(maze.maze[i])).className = "wall";
+			document.getElementById(JSON.stringify(maze.maze[i])).className = "wall bg-dark";
 		}, i * 10);
 	}
 }
@@ -33,7 +33,7 @@ function callUndoMazeAnimation(maze, clearedWalls) {
 	// Visualize recursive backtracking maze generation algorithm
 	maze.clearWalls();
 	for (let i=0; i<maze.maze.length; i++) {
-		document.getElementById(JSON.stringify(maze.maze[i])).className = "wall";
+		document.getElementById(JSON.stringify(maze.maze[i])).className = "wall bg-dark";
 	}
 	for (let j=0; j<clearedWalls.length; j++) {
 		setTimeout(() => {

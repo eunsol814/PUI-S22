@@ -1,14 +1,12 @@
 class Board {
 	constructor() {
 		this.maze = [];
-		//this.width = 500;
-		//this.height = 300;
-		this.rows = 25;
-		this.cols = 45;
+		this.rows = Math.floor(window.innerHeight * 0.8 / 25);
+		this.cols = Math.floor(window.innerWidth / 30);
 		this.data = null;
 		this.directions = ["Up", "Down", "Right", "Left"];
-		this.startState = {r: 12, c: 10};
-		this.goalState = {r: 12, c: 35};
+		this.startState = {r: Math.floor(this.rows/2), c: Math.floor(this.cols/4)}
+		this.goalState = {r: Math.floor(this.rows/2), c: Math.floor(this.cols*3/4)}
 		this.algorithm = "BFS";
 		this.heuristic = null;
 		this.search = null;
@@ -90,7 +88,7 @@ class Board {
 		if (this.data == null) {
 			return false;
 		}else {
-			return document.getElementById(JSON.stringify(state)).className == 'wall';
+			return document.getElementById(JSON.stringify(state)).className == 'wall bg-dark';
 		}
 	};
 
@@ -156,8 +154,8 @@ function selectCell(cell) {
 	// Turn selected cell to wall if id='blank'
 	// Else remove wall from cell (id='wall')
 	if (cell.className == 'blank') {
-		cell.className = 'wall';
-	} else if (cell.className == 'wall'){
+		cell.className = 'wall bg-dark';
+	} else if (cell.className == 'wall bg-dark'){
 		cell.className = 'blank';
 	}
 };

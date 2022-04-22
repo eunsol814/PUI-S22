@@ -2,8 +2,10 @@
 <html>
 <head>
 	<title>Pathfinding Visualizer</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="util.js"></script>
 	<script type="text/javascript" src="help.js"></script>
@@ -15,53 +17,100 @@
 	<script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-	<h1>Pathfinding Visualizer</h1>
-	<div class="menubar">
-		<div class="dropdown">
-			<button class="dropbutton">Search Algorithm
-				<i class="down"></i>
+	<!-- <h1>Pathfinding Visualizer</h1> -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">Pathfinding Visualizer</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="dropdown-content" id="algorithm">
-				<a href="#" id="BFS">Breadth First Search</a>
-				<a href="#" id="DFS">Depth First Search</a>
-				<a href="#" id="A*">A* Search</a>
-				<a href="#" id="Dijkstra">Dijkstra's Algorithm</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-target="#searchAlg" aria-expanded="false">
+							Search Algorithm
+						</a>
+						<ul class="dropdown-menu" id="searchAlg" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#" id="BFS">Breadth First Search</a></li>
+							<li><a class="dropdown-item" href="#" id="DFS">Depth First Search</a></li>
+							<li><a class="dropdown-item" href="#" id="A*">A* Search</a></li>
+							<li><a class="dropdown-item" href="#" id="Dijkstra">Dijkstra's Algorithm</a></li>
+						  </ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-target="#heuristic" aria-expanded="false">
+							Heuristic
+						</a>
+						<ul class="dropdown-menu" id="heuristic" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#" id="null">Null Heuristic</a></li>
+							<li><a class="dropdown-item" href="#" id="manhattanD">Manhattan Distance</a></li>
+							<li><a class="dropdown-item" href="#" id="euclideanD">Euclidean Distance</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-target="#mazeAlg" aria-expanded="false">
+							Maze Generation Algorithm
+						</a>
+						<ul class="dropdown-menu" id="mazeAlg" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#" id="random">Random Maze</a></li>
+							<li><a class="dropdown-item" href="#" id="division">Recursive Division Method</a></li>
+							<li><a class="dropdown-item" href="#" id="backtrack">Recursive Backtracker</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="clearboard">Clear Board</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="clearwall">Clear Walls</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="clearpath">Clear Path</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="visualize">Visualize!</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="help" data-bs-toggle="modal" data-bs-target="#helpModal">Help</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="dropdown">
-			<button class="dropbutton">Heuristic
-				<i class="down"></i>
-			</button>
-			<div class="dropdown-content" id="heuristic">
-				<a href="#" id="null">Null Heuristic</a>
-				<a href="#" id="manhattanD">Manhattan Distance</a>
-				<a href="#" id="euclideanD">Euclidean Distance</a>
-			</div>
-		</div>
-		<div class="dropdown">
-			<button class="dropbutton">Maze Generation Algorithm
-				<i class="down"></i>
-			</button>
-			<div class="dropdown-content" id="mazeAlgorithm">
-				<a href="#" id="random">Random Maze</a>
-				<a href="#" id="division" >Recursive Division Method</a>
-				<a href="#" id="backtrack">Recursive Backtracker</a>
-			</div>
-		</div>
-		<a href="#clearboard" id="clearboard">Clear Board</a>
-		<a href="#clearwall" id="clearwall">Clear Walls</a>
-		<a href="#clearpath" id="clearpath">Clear Path</a>
-		<a href="#visualize" id="visualize">Visualize!</a>
-		<a href="#help" id="help">Help</a>
-	</div>
+	</nav>
 	<div class="description">
 	</div>
 	<div class="content">
-		<table id="maze">
+		<table class="table table-bordered" id="maze">
 		</table>
 		<br>
 	</div>
-	
+	<div class="modal" id="helpModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title">Guide to Pathfinding Visualizer</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body" id="1">
+				<p>Page 1</p>
+			  </div>
+			  <div class="modal-body d-none" id="2">
+				  <p>Page 2</p>
+			  </div>
+			  <div class="modal-body d-none" id="3">
+				<p>Page 3</p>
+			</div>
+			  <div class="modal-footer">
+				<button type="button" class="btn" id="modal-btn-prev">
+					Prev
+				</button>
+				<button type="button" class="btn" id="modal-btn-next">
+					Next
+				</button>
+			  </div>
+			</div>
+		  </div>
+	</div>
+
 </body>
 </html>
 
