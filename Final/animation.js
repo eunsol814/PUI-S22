@@ -3,6 +3,7 @@ function callSearchAnimation(maze) {
 	maze.clearPaths();
 	let state = maze.getStartState();
 	maze.animation = true;
+	console.log(maze.animation);
 	for (let i=1; i<maze.explored.length; i++) {
 		setTimeout(() => {
 			document.getElementById(JSON.stringify(maze.explored[i])).className = 'explored';
@@ -18,8 +19,9 @@ function callSearchAnimation(maze) {
 			}, j * 10);
 			state = nextState;
 		}
+		maze.animation = false;
+		console.log(maze.animation);
 	}, maze.explored.length * 10)
-	maze.animation = false;
 };
 
 function callMazeAnimation(maze) {
@@ -28,7 +30,7 @@ function callMazeAnimation(maze) {
 	maze.animation = true;
 	for (let i=0; i<maze.maze.length; i++) {
 		setTimeout(() => {
-			document.getElementById(JSON.stringify(maze.maze[i])).className = "wall bg-dark";
+			document.getElementById(JSON.stringify(maze.maze[i])).className = "wall";
 		}, i * 10);
 	}
 	maze.animation = false;
@@ -39,7 +41,7 @@ function callUndoMazeAnimation(maze, clearedWalls) {
 	maze.clearWalls();
 	maze.animation = true;
 	for (let i=0; i<maze.maze.length; i++) {
-		document.getElementById(JSON.stringify(maze.maze[i])).className = "wall bg-dark";
+		document.getElementById(JSON.stringify(maze.maze[i])).className = "wall";
 	}
 	for (let j=0; j<clearedWalls.length; j++) {
 		setTimeout(() => {

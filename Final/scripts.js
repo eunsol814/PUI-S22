@@ -4,6 +4,14 @@ $(document).ready(function() {
 	var maze = new Board();
 	maze.createGrid();
 
+	$("td").click(function() {
+		if (this.className == "blank" && maze.animation == false) {
+			this.className = "wall";
+		} else if (this.className == "wall" && maze.animation == false) {
+			this.className = "blank";
+		}
+	});
+
 	document.getElementById("BFS").onclick = function() {
 		maze.algorithm = "BFS";
 	};

@@ -28,11 +28,11 @@ class Board {
 				sub.push(false);
 				var index = {r: row, c: col};
 				if (_.isEqual(this.startState, index)) {
-					boardRow += "<td id=" + JSON.stringify(index) + " class='player' dragabble='true' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='drag(event)' onclick=moveCell()></td>";
+					boardRow += "<td id=" + JSON.stringify(index) + " class='player' dragabble='true' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='drag(event)'></td>";
 				} else if (_.isEqual(this.goalState, index)) {
-					boardRow += "<td id=" + JSON.stringify(index) + " class='goal' dragabble='true' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='drag(event)' onclick=moveCell()></td>";
+					boardRow += "<td id=" + JSON.stringify(index) + " class='goal' dragabble='true' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='drag(event)'></td>";
 				} else {
-					boardRow += "<td id=" + JSON.stringify(index) + " class='blank' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='drag(event)' onclick=selectCell(this)></td>";
+					boardRow += "<td id=" + JSON.stringify(index) + " class='blank' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='drag(event)'></td>";
 				}
 			}
 			boardRow += "</tr>";
@@ -89,7 +89,7 @@ class Board {
 		if (this.data == null) {
 			return false;
 		}else {
-			return document.getElementById(JSON.stringify(state)).className == 'wall bg-dark';
+			return document.getElementById(JSON.stringify(state)).className == 'wall';
 		}
 	};
 
@@ -152,15 +152,9 @@ class Board {
 };
 
 function selectCell(cell) {
-	// Turn selected cell to wall if id='blank'
-	// Else remove wall from cell (id='wall')
-	if (cell.className == 'blank' && this.animation == false) {
-		cell.className = 'wall bg-dark';
-	} else if (cell.className == 'wall bg-dark' && this.animation == false){
-		cell.className = 'blank';
+	if (cell.className == "blank" && maze.animation == false) {
+		cell.className = "wall";
+	} else if (cell.className == "wall" && maze.animation == false) {
+		cell.className = "blank";
 	}
-};
-
-
-
-
+}

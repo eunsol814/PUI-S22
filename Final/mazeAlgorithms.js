@@ -7,7 +7,7 @@ function randomMaze(board) {
 		var col = Math.floor(Math.random() * cols);
 		var index = JSON.stringify({r: row, c: col});
 		if (document.getElementById(index).className == "blank") {
-			document.getElementById(index).className = "wall bg-dark";
+			document.getElementById(index).className = "wall";
 		}
 	}
 };
