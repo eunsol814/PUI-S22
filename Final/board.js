@@ -13,6 +13,7 @@ class Board {
 		this.explored = null;
 		this.shortestPath = null;
 		this.playerImg = "<img src='smile.svg'>";
+		this.animation = false;
 	}
 
 	createGrid() {
@@ -153,9 +154,9 @@ class Board {
 function selectCell(cell) {
 	// Turn selected cell to wall if id='blank'
 	// Else remove wall from cell (id='wall')
-	if (cell.className == 'blank') {
+	if (cell.className == 'blank' && this.animation == false) {
 		cell.className = 'wall bg-dark';
-	} else if (cell.className == 'wall bg-dark'){
+	} else if (cell.className == 'wall bg-dark' && this.animation == false){
 		cell.className = 'blank';
 	}
 };

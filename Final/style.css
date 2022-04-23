@@ -42,11 +42,10 @@ tr, td {
 }
 
 .explored {
-	background-color: lavenderblush;
 	animation-name: explore;
 	animation-duration: 1.5s;
 }
 
 .path {
-	background-color: yellow;
+	background-color: yellow!important;
 }
