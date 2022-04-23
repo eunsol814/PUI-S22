@@ -12,17 +12,42 @@ $(document).ready(function() {
 		}
 	});
 
+	$(".dropdown-toggle").click(function() {
+		var id = $(this).attr("id");
+		var dropdown = $("[aria-labelledby="+id+"]")
+		console.log(dropdown);
+		if ($(this).attr("aria-expanded") == "false") {
+			$(this).attr("aria-expanded", true).focus();
+			$(this).addClass("show");
+			dropdown.addClass("show");
+			dropdown.attr("data-bs-popper", "none");
+		} else {
+			$(this).attr("aria-expanded", false);
+			$(this).removeClass("show");
+			dropdown.removeClass("show");
+			dropdown.removeAttr("data-bs-popper");
+		}
+	})
+
 	document.getElementById("BFS").onclick = function() {
 		maze.algorithm = "BFS";
+		disableHeuristic();
+		updateDescription(0);
 	};
 	document.getElementById("DFS").onclick = function() {
 		maze.algorithm = "DFS";
+		disableHeuristic();
+		updateDescription(1);
 	};
 	document.getElementById("A*").onclick = function() {
 		maze.algorithm = "A*";
+		enableHeuristic();
+		updateDescription(2);
 	};
 	document.getElementById("Dijkstra").onclick = function() {
 		maze.algorithm = "Dijkstra";
+		enableHeuristic();
+		updateDescription(3);
 	};
 
 	document.getElementById("null").onclick = function() {
@@ -87,3 +112,22 @@ $(document).ready(function() {
 		helpI = 0;
 	});
 });
+
+function updateDescription(i) {
+	var algs = ["Breadth First Search", "Depth First Search", "A* Search", "Dijkstra's Algorithm"];
+	var descriptions = ["unweighted, and guarantees shortest path", 
+						"unweighted, and does not guarantee shortest path", 
+						"weighted, and guarantees shortest path",
+						"weighted, and guarantees shortest path"];
+	document.getElementById("searchAlgDropdown").innerHTML = algs[i];
+	document.getElementById("searchAlgDropdown").style.color = "yellow";
+	document.getElementsByClassName("description")[0].innerHTML = "<span class='name'>" + algs[i] + "</span> is " + descriptions[i];
+}
+
+function disableHeuristic() {
+	$("#heuristicDropdown").addClass("disabled");
+}
+
+function enableHeuristic() {
+	$("#heuristicDropdown").removeClass("disabled");
+}

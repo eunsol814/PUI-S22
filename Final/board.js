@@ -7,7 +7,7 @@ class Board {
 		this.directions = ["Up", "Down", "Right", "Left"];
 		this.startState = {r: Math.floor(this.rows/2), c: Math.floor(this.cols/4)}
 		this.goalState = {r: Math.floor(this.rows/2), c: Math.floor(this.cols*3/4)}
-		this.algorithm = "BFS";
+		this.algorithm = null;
 		this.heuristic = null;
 		this.search = null;
 		this.explored = null;
@@ -50,6 +50,7 @@ class Board {
 				let cell = document.getElementById(JSON.stringify(index));
 				if ((cell.className != "player") && (cell.className != "goal") && (cell.className != "blank")) {
 					cell.className = "blank";
+					cell.style.removeProperty("background-color");
 				}
 			}
 		}
@@ -69,10 +70,12 @@ class Board {
 		Array.from(document.getElementsByClassName("explored")).forEach(
 			function(element) {
 				element.className = "blank";
+				element.style.removeProperty("background-color");
 			})
 		Array.from(document.getElementsByClassName("path")).forEach(
 			function(element) {
 				element.className = "blank";
+				element.style.removeProperty("background-color");
 			})
 	};
 
