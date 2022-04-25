@@ -109,7 +109,8 @@ class Board {
 		Array.from(document.getElementsByClassName("goal")).forEach((element) => {
 			this.goalState = JSON.parse(element.id);
 		})
-		return (_.isEqual(this.goalState, state));
+		return (this.goalState.r == state.r) && (this.goalState.c == state.c);
+		// return (_.isEqual(this.goalState, state));
 	};
 
 	getActions(state) {
@@ -132,24 +133,25 @@ class Board {
 		return actions;
 	};
 
-	getResult(state, action) {
+	getResult(state, act) {
 		// Get the result of taking 'action' at 'state'
 		const currRow = state.r;
 		const currCol = state.c;
-		if (action == "Up") {
-			return {r: currRow-1, c: currCol};
-		} else if (action == "Down") {
-			return {r: currRow+1, c: currCol};
-		} else if (action == "Left") {
-			return {r: currRow, c: currCol-1};
-		} else if (action == "Right") {
-			return {r: currRow, c: currCol+1};
+		if (act == "Up") {
+			return {r: currRow-1, c: currCol, action: act};
+		} else if (act == "Down") {
+			return {r: currRow+1, c: currCol, action: act};
+		} else if (act == "Left") {
+			return {r: currRow, c: currCol-1, action: act};
+		} else if (act == "Right") {
+			return {r: currRow, c: currCol+1, action: act};
 		}
 	};
 
-	getCost(state, action) {
+	getCost(state, act) {
 		// Get the cost of taking 'action' at 'state'
-		return 0;
+		if (state.action == act) return 0;
+		else return 1;
 	};
 
 };

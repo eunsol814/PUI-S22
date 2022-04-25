@@ -14,8 +14,9 @@ function callSearchAnimation(maze) {
 		for (let j=0; j<maze.shortestPath.length - 1; j++) {
 			let action = maze.shortestPath[j];
 			let nextState  = maze.getResult(state, action);
+			let id = {r: nextState.r, c: nextState.c};
 			setTimeout(() => {
-				document.getElementById(JSON.stringify(nextState)).className = 'path';
+				document.getElementById(JSON.stringify(id)).className = 'path';
 			}, j * 10);
 			state = nextState;
 		}

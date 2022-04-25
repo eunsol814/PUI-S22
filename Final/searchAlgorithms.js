@@ -90,8 +90,10 @@ function aStarSearch(problem, heuristic) {
 	var answer = null;
 	var explored = [];
 	var frontier = new PriorityQueue();
-	var start = new Node(problem.getStartState(), null, null, 0);
-	frontier.push(start, heuristic(problem.getStartState(), problem));
+	var initialState = problem.getStartState();
+	initialState.action = "Right";
+	var start = new Node(initialState, null, null, 0);
+	frontier.push(start, heuristic(initialState, problem));
 	while (answer == null) {
 		if (frontier.isEmpty()) {
 			answer = [];
@@ -106,7 +108,8 @@ function aStarSearch(problem, heuristic) {
 				}
 				answer = path;
 			}else if (!(explored.some(cell => (_.isEqual(cell, state))))) {
-				explored.push(state);
+				var exploreState = {r: state.r, c: state.c};
+				explored.push(exploreState);
 				var actions = problem.getActions(state);
 				for (act of actions) {
 					var child = problem.getResult(state, act);
@@ -127,7 +130,9 @@ function dijkstra(problem) {
 	var answer = null;
 	var explored = [];
 	var frontier = new PriorityQueue();
-	var start = new Node(problem.getStartState(), null, null, 0);
+	var initialState = problem.getStartState();
+	initialState.action = "Right";
+	var start = new Node(initialState, null, null, 0);
 	frontier.push(start, 0);
 	while (!frontier.isEmpty()) {
 		var node = frontier.pop();
@@ -142,8 +147,9 @@ function dijkstra(problem) {
 			break;
 		}
 		else {
-			if (!explored.some(cell => (_.isEqual(cell, state)))){
-				explored.push(state);
+			if (!explored.some(cell => (cell.r == state.r && cell.c == state.c))){
+				var exploreState = {r: state.r, c: state.c};
+				explored.push(exploreState);
 			}
 			var actions = problem.getActions(state);
 			for (act of actions) {

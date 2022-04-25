@@ -46,7 +46,7 @@ $(document).ready(function() {
 	};
 	document.getElementById("Dijkstra").onclick = function() {
 		maze.algorithm = "Dijkstra";
-		enableHeuristic();
+		disableHeuristic();
 		updateDescription(3);
 	};
 
