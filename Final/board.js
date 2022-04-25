@@ -44,39 +44,45 @@ class Board {
 
 	clearAll() {
 		// Remove everything on board
-		for (var row=0; row<this.rows; row++) {
-			for (var col=0; col<this.cols; col++) {
-				let index = {r: row, c: col};
-				let cell = document.getElementById(JSON.stringify(index));
-				if ((cell.className != "player") && (cell.className != "goal") && (cell.className != "blank")) {
-					cell.className = "blank";
-					cell.style.removeProperty("background-color");
+		if (this.animation == false) {
+			for (var row=0; row<this.rows; row++) {
+				for (var col=0; col<this.cols; col++) {
+					let index = {r: row, c: col};
+					let cell = document.getElementById(JSON.stringify(index));
+					if ((cell.className != "player") && (cell.className != "goal") && (cell.className != "blank")) {
+						cell.className = "blank";
+						cell.style.removeProperty("background-color");
+					}
 				}
 			}
+			this.maze = [];
 		}
-		this.maze = [];
 	};
 
 	clearWalls() {
 		// Remove all the walls on board
-		Array.from(document.getElementsByClassName("wall")).forEach(
-			function(element) {
-				element.className = "blank";
-			})
+		if (this.animation == false) {
+			Array.from(document.getElementsByClassName("wall")).forEach(
+				function(element) {
+					element.className = "blank";
+				})
+		}
 	};
 
 	clearPaths() {
 		// Remove paths on board
-		Array.from(document.getElementsByClassName("explored")).forEach(
-			function(element) {
-				element.className = "blank";
-				element.style.removeProperty("background-color");
-			})
-		Array.from(document.getElementsByClassName("path")).forEach(
-			function(element) {
-				element.className = "blank";
-				element.style.removeProperty("background-color");
-			})
+		if (this.animation == false) {
+			Array.from(document.getElementsByClassName("explored")).forEach(
+				function(element) {
+					element.className = "blank";
+					element.style.removeProperty("background-color");
+				})
+			Array.from(document.getElementsByClassName("path")).forEach(
+				function(element) {
+					element.className = "blank";
+					element.style.removeProperty("background-color");
+				})
+		}
 	};
 
 	checkExplored(state) {

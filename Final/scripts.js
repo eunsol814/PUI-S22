@@ -15,7 +15,6 @@ $(document).ready(function() {
 	$(".dropdown-toggle").click(function() {
 		var id = $(this).attr("id");
 		var dropdown = $("[aria-labelledby="+id+"]")
-		console.log(dropdown);
 		if ($(this).attr("aria-expanded") == "false") {
 			$(this).attr("aria-expanded", true).focus();
 			$(this).addClass("show");

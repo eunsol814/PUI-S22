@@ -28,6 +28,7 @@ function depthFirstSearch(problem) {
 				})
 				for (act of actions) {
 					var child = problem.getResult(state, act);
+					delete child.action;
 					if (!(explored.some(cell => (_.isEqual(cell, child)))) && 
 						!(future.some(cell => (_.isEqual(cell, child))))) {
 						var newNode = new Node(child, node, act, 0);
@@ -71,6 +72,7 @@ function breadthFirstSearch(problem) {
 				})
 				for (act of actions) {
 					var child = problem.getResult(state, act);
+					delete child.action;
 					if (!(explored.some(cell => (_.isEqual(cell, child)))) && 
 						!(future.some(cell => (_.isEqual(cell, child))))) {
 						var newNode = new Node(child, node, act, 0);

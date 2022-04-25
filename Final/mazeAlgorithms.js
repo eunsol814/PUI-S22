@@ -67,11 +67,11 @@ function buildWalls(board, minrow, mincol, maxrow, maxcol) {
 function buildHWall(board, row, mincol, maxcol) {
 	// Build horizontal wall of recursive division maze
 	var space = Math.floor(Math.random() * (maxcol - mincol - 2) / 2) * 2 + mincol + 1;
-	console.log(row, space);
+	// console.log(row, space);
 	for (let i=mincol+1; i<maxcol; i++) {
 		if (i != space) {
 			var index = {r: row, c: i};
-			console.log(index);
+			// console.log(index);
 			if (!(board.goalTest(index) || _.isEqual(board.getStartState(), index))) {
 				board.maze.push(index);
 			}
@@ -82,11 +82,11 @@ function buildHWall(board, row, mincol, maxcol) {
 function buildVWall(board, col, minrow, maxrow) {
 	// Build vertical wall of recursive division maze
 	var space = Math.floor(Math.random() * (maxrow - minrow - 2) / 2) * 2 + minrow + 1;
-	console.log(col, space);
+	// console.log(col, space);
 	for (let i=minrow+1; i<maxrow; i++) {
 		if (i != space) {
 			var index = {r: i, c: col};
-			console.log(index);
+			// console.log(index);
 			if (!(board.goalTest(index) || _.isEqual(board.getStartState(), index))) {
 				board.maze.push(index);
 			}
