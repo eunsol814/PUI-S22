@@ -38,12 +38,17 @@ tr, td {
 }
 
 @keyframes explore {
-	from {background-color: palevioletred;} to {background-color: lavenderblush;}
+	/* from {background-color: palevioletred;} to {background-color: lavenderblush;} */
+	0% {background-color: cyan;}
+	25% {background-color: darkviolet;}
+	50% {background-color: fuchsia;}
+	75% {background-color: #ff88ff;}
+	100% {background-color: #ffeeff;}
 }
 
 .explored {
 	animation-name: explore;
-	animation-duration: 1.5s;
+	animation-duration: 2s;
 }
 
 .path {

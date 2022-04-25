@@ -8,7 +8,7 @@ function callSearchAnimation(maze) {
 		setTimeout(() => {
 			let id = {r: maze.explored[i].r, c: maze.explored[i].c};
 			document.getElementById(JSON.stringify(id)).className = 'explored';
-			document.getElementById(JSON.stringify(id)).style.backgroundColor = "lavenderblush";
+			document.getElementById(JSON.stringify(id)).style.backgroundColor = "#ffeeff";
 		}, i * 10);
 	}	
 	setTimeout(() => {
