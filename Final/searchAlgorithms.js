@@ -107,7 +107,7 @@ function aStarSearch(problem, heuristic) {
 					node = node.parent;
 				}
 				answer = path;
-			}else if (!(explored.some(cell => (_.isEqual(cell, state))))) {
+			}else if (!(explored.some(cell => (cell.r == state.r && cell.c == state.c)))) {
 				var exploreState = {r: state.r, c: state.c};
 				explored.push(exploreState);
 				var actions = problem.getActions(state);
