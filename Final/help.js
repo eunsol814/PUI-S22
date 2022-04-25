@@ -63,3 +63,11 @@ var page6 =
 </div>`;
 
 var Pages = [page1, page2, page3, page4, page5, page6];
+
+function startLoader() {
+    $("#loader").removeClass("d-none");
+};
+
+function endLoader() {
+    $("#loader").addClass("d-none");
+};

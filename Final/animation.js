@@ -1,5 +1,6 @@
 function callSearchAnimation(maze) {
 	// Visualize search algorithm
+	endLoader();
 	maze.clearPaths();
 	let state = maze.getStartState();
 	maze.animation = true;
@@ -20,8 +21,8 @@ function callSearchAnimation(maze) {
 			}, j * 10);
 			state = nextState;
 		}
-		maze.animation = false;
 	}, maze.explored.length * 10)
+	setTimeout(() => {maze.animation = false;}, (maze.shortestPath.length + maze.explored.length) * 10);
 };
 
 function callMazeAnimation(maze) {
@@ -33,7 +34,7 @@ function callMazeAnimation(maze) {
 			document.getElementById(JSON.stringify(maze.maze[i])).className = "wall";
 		}, i * 10);
 	}
-	maze.animation = false;
+	setTimeout(() => {maze.animation = false;}, maze.maze.length * 10);
 }
 
 function callUndoMazeAnimation(maze, clearedWalls) {
@@ -48,7 +49,7 @@ function callUndoMazeAnimation(maze, clearedWalls) {
 			document.getElementById(JSON.stringify(clearedWalls[j])).className = "blank";
 		}, j * 10);
 	}
-	maze.animation = false;
+	setTimeout(() => {maze.animation = false;}, (maze.maze.length + clearedWalls.length) * 10);
 }
 
 function visualize(maze) {

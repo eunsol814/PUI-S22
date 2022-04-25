@@ -150,8 +150,7 @@ function dijkstra(problem) {
 		}
 		else {
 			if (!explored.some(cell => (cell.r == state.r && cell.c == state.c))){
-				var exploreState = {r: state.r, c: state.c};
-				explored.push(exploreState);
+				explored.push(state);
 			}
 			var actions = problem.getActions(state);
 			for (act of actions) {

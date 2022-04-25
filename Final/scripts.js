@@ -63,6 +63,7 @@ $(document).ready(function() {
 	};
 
 	document.getElementById("visualize").onclick = function() {
+		startLoader();
 		if (maze.algorithm == "BFS") {
 			breadthFirstSearch(maze);
 		} else if (maze.algorithm == "DFS") {
