@@ -52,12 +52,15 @@ $(document).ready(function() {
 
 	document.getElementById("null").onclick = function() {
 		maze.heuristic = function(a, b) {return nullHeuristic(a, b)};
+		updateHeuristic(0);
 	};
 	document.getElementById("manhattanD").onclick = function() {
 		maze.heuristic = function(a, b) {return manhattanDistance(a, b)};
+		updateHeuristic(1);
 	};
 	document.getElementById("euclideanD").onclick = function() {
 		maze.heuristic = function(a, b) {return euclideanDistance(a, b)};
+		updateHeuristic(2);
 	};
 
 	document.getElementById("visualize").onclick = function() {
@@ -119,12 +122,20 @@ function updateDescription(i) {
 						"unweighted, and does not guarantee shortest path", 
 						"weighted, and guarantees shortest path",
 						"weighted, and guarantees shortest path"];
-	document.getElementById("searchAlgDropdown").innerHTML = algs[i];
-	document.getElementById("searchAlgDropdown").style.color = "yellow";
+	$("#searchAlgDropdown").html(algs[i]);
+	$("#searchAlgDropdown").addClass("selected");
 	document.getElementsByClassName("description")[0].innerHTML = "<span class='name'>" + algs[i] + "</span> is " + descriptions[i];
 }
 
+function updateHeuristic(i) {
+	var hs = ["Null Heuristic", "Manhattan Distance", "Euclidean Distance"];
+	$("#heuristicDropdown").html(hs[i]);
+	$("#heuristicDropdown").addClass("selected");
+}
+
 function disableHeuristic() {
+	$("#heuristicDropdown").removeClass("selected");
+	$("#heuristicDropdown").html("Heuristic");
 	$("#heuristicDropdown").addClass("disabled");
 }
 

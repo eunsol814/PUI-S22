@@ -53,3 +53,7 @@ tr, td {
 .name {
 	font-weight: bold;
 }
+
+.selected {
+	color: yellow!important;
+}
