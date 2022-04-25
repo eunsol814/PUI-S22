@@ -21,13 +21,15 @@ var page2 =
         <dt class="col-sm-3 name">Dijkstra's Algorithm:</dt>
         <dd class="col-sm-9">weighted, guarantees shortest path</dd>
     </dl>
+    <p>Unweighted algorithms treats all options equally. 
+    Weighted algorithms use cost function to get the cost of each available option - cost of changing a direction is set to 1.</p>
 </div>`;
 
 var page3 =
 `<div>
     <h1>Heuristics</h1>
     <p>Heurisitc is a function that ranks options at each branching step to decide which branch to follow.
-    Heuristics are only applied towards weighted algorithms, that is, A* and Dijkstra's.</p>
+    Heuristics are only applied towards A* Search.</p>
     <dl class="row">
         <dt class="col-sm-3 name">Null Heuristic:</dt>
         <dd class="col-sm-9">equivalent of not using a heuristic for search</dd>
@@ -50,7 +52,9 @@ var page4 =
 var page5 = 
 `<div>
     <h1>Visualizing and More</h1>
-    <div></div>
+    <div>After you have selected search algorithm, and possibly a heuristic, you can click on 
+    <button class="btn btn-primary">Visualize!</button>
+     to visualize the path explored by the algorithm and view the optimal route it has found from search.</div>
 </div>`;
 
 var page6 = 
