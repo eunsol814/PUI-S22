@@ -73,6 +73,8 @@ $(document).ready(function() {
 		} else if (maze.algorithm == "Dijkstra") {
 			dijkstra(maze);
 		}
+		endLoader();
+		callSearchAnimation(maze);
 	};
 
 	document.getElementById("random").onclick = function() {

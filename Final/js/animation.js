@@ -1,6 +1,5 @@
 function callSearchAnimation(maze) {
 	// Visualize search algorithm
-	endLoader();
 	maze.clearPaths();
 	let state = maze.getStartState();
 	maze.animation = true;

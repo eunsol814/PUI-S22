@@ -22,13 +22,13 @@ tr, td {
 }
 
 .player {
-	background-image: url(smile.svg);
+	background-image: url(img/smile.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 }
 
 .goal {
-	background-image: url(flag.svg);
+	background-image: url(img/flag.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -68,4 +68,8 @@ tr, td {
 	width: 100%; /* Full width (cover the whole page) */
 	height: 100%; /* Full height (cover the whole page) */
 	top: 50%;
+}
+
+.help-img {
+	margin: auto;
 }

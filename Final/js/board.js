@@ -12,7 +12,6 @@ class Board {
 		this.search = null;
 		this.explored = null;
 		this.shortestPath = null;
-		this.playerImg = "<img src='smile.svg'>";
 		this.animation = false;
 	}
 

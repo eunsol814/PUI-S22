@@ -41,7 +41,6 @@ function depthFirstSearch(problem) {
 	}
 	problem.explored = explored;
 	problem.shortestPath = answer;
-	callSearchAnimation(problem);
 }
 
 function breadthFirstSearch(problem) {
@@ -85,7 +84,6 @@ function breadthFirstSearch(problem) {
 	}
 	problem.explored = explored;
 	problem.shortestPath = answer;
-	callSearchAnimation(problem);
 };
 
 function aStarSearch(problem, heuristic) {
@@ -125,7 +123,6 @@ function aStarSearch(problem, heuristic) {
 	}
 	problem.explored = explored;
 	problem.shortestPath = answer;
-	callSearchAnimation(problem);
 };
 
 function dijkstra(problem) {
@@ -163,7 +160,6 @@ function dijkstra(problem) {
 	}
 	problem.explored = explored;
 	problem.shortestPath = answer;
-	callSearchAnimation(problem);
 };
 
 
