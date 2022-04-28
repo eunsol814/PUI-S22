@@ -65,6 +65,10 @@ var page5 =
     <button class="btn btn-primary">Visualize!</button>
      to visualize the path explored by the algorithm and view the optimal route it has found from search.</div>
     <img src="img/clears.png" class="help-img" style="width: 40%;" alt="screenshot of menu"></img>
+    <div>
+    You can clear out the entire board by clicking 'Clear Board'. You can also choose to clear out only the board using 'Clear Walls'
+    or only the path using 'Clear Path'.
+    </div>
 </div>`;
 
 var page6 = 
